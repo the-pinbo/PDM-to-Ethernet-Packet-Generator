@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1701005028" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ethernet_top.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1701008741" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ethernet_top.dcp">
   <File Type="PA-TCL" Name="ethernet_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="ethernet_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="ethernet_top_reports.tcl"/>
@@ -53,13 +53,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/parzen.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../src/pdm_clk_gen.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -81,15 +74,24 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/triangle_gen.sv">
+    <File Path="$PPRDIR/../src/ethernet_top.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../src/ethernet_top.sv">
+    <File Path="$PPRDIR/../src/parzen.sv">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../src/triangle_gen.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -182,7 +184,5 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="cic_compiler_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="xfft_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="window_multiplier"/>
   <BlockFileSet Type="BlockSrcs" Name="data_fifo"/>
 </GenRun>

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Sun Nov 26 18:56:09 2023
+| Date         : Sun Nov 26 19:57:42 2023
 | Host         : DESKTOP-8PI2STL running 64-bit major release  (build 9200)
 | Command      : report_methodology -file ethernet_top_methodology_drc_routed.rpt -pb ethernet_top_methodology_drc_routed.pb -rpx ethernet_top_methodology_drc_routed.rpx
 | Design       : ethernet_top
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 20
+             Violations found: 11
 +-----------+------------------+------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                      | Violations |
 +-----------+------------------+------------------------------------------------------------------+------------+
@@ -34,7 +34,6 @@ Table of Contents
 | CKLD-2    | Warning          | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
 | HPDR-1    | Warning          | Port pin direction inconsistency                                 | 3          |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                     | 2          |
-| SYNTH-10  | Warning          | Wide multiplier                                                  | 9          |
 | TIMING-18 | Warning          | Missing input or output delay                                    | 1          |
 +-----------+------------------+------------------------------------------------------------------+------------+
 
@@ -102,51 +101,6 @@ Related violations: <none>
 LUTAR-1#2 Warning
 LUT drives async reset alert  
 LUT cell rst_gen_i/gen_50M_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) eth_rst_gen_i/gen_50M/inst/mmcm_adv_inst/RST. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
-SYNTH-10#1 Warning
-Wide multiplier  
-Detected multiplier at fft_data_im_sq of size 21x18, it is decomposed from a wide multipler into 5 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#2 Warning
-Wide multiplier  
-Detected multiplier at fft_data_im_sq__1 of size 18x18, it is decomposed from a wide multipler into 5 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#3 Warning
-Wide multiplier  
-Detected multiplier at fft_data_im_sq__2 of size 18x21, it is decomposed from a wide multipler into 5 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#4 Warning
-Wide multiplier  
-Detected multiplier at fft_data_re_sq of size 21x18, it is decomposed from a wide multipler into 5 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#5 Warning
-Wide multiplier  
-Detected multiplier at fft_data_re_sq__1 of size 18x18, it is decomposed from a wide multipler into 5 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#6 Warning
-Wide multiplier  
-Detected multiplier at fft_data_re_sq__2 of size 18x21, it is decomposed from a wide multipler into 5 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#7 Warning
-Wide multiplier  
-Detected multiplier at parzen_i/b3_q1 of size 25x15, it is decomposed from a wide multipler into 3 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#8 Warning
-Wide multiplier  
-Detected multiplier at parzen_i/b3_q1__0 of size 25x18, it is decomposed from a wide multipler into 3 DSP blocks.
-Related violations: <none>
-
-SYNTH-10#9 Warning
-Wide multiplier  
-Detected multiplier at parzen_i/b3_q1__1 of size 25x18, it is decomposed from a wide multipler into 3 DSP blocks.
 Related violations: <none>
 
 TIMING-18#1 Warning

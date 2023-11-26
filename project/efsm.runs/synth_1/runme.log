@@ -22,17 +22,16 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 22040
-WARNING: [Synth 8-6901] identifier 'windowed_data_ready' is used before its declaration [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/ethernet_top.sv:130]
+INFO: [Synth 8-7075] Helper process launched with PID 832
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1294.664 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1293.344 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'ethernet_top' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/ethernet_top.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'rst_gen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/rst_gen.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'rst_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/rst_gen.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'eth_rst_gen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_rst_gen.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/realtime/clk_wiz_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'clk_out3' of module 'clk_wiz_0' is unconnected for instance 'gen_50M' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_rst_gen.sv:38]
 WARNING: [Synth 8-7023] instance 'gen_50M' of module 'clk_wiz_0' has 6 connections declared, but only 5 given [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_rst_gen.sv:38]
 INFO: [Synth 8-6155] done synthesizing module 'eth_rst_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_rst_gen.sv:23]
@@ -43,35 +42,22 @@ INFO: [Synth 8-6157] synthesizing module 'pdm_clk_gen' [C:/Users/inba2/Desktop/D
 	Parameter INPUT_FREQ bound to: 50000000 - type: integer 
 	Parameter OUTPUT_FREQ bound to: 2400000 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'pdm_clk_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/pdm_clk_gen.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'cic_compiler_0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/cic_compiler_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'cic_compiler_0' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/cic_compiler_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'cic_compiler_0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/realtime/cic_compiler_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cic_compiler_0' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/realtime/cic_compiler_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'pdm_microphone' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/pdm_microphone.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'parzen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/parzen.sv:23]
-	Parameter WINDOW_SIZE_POW2 bound to: 8 - type: integer 
-	Parameter INTERNAL_FRAC bound to: 16 - type: integer 
-	Parameter OUTPUT_INT bound to: 1 - type: integer 
-	Parameter OUTPUT_FRAC bound to: 16 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'triangle_gen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/triangle_gen.sv:24]
-	Parameter WIDTH_POW2 bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'triangle_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/triangle_gen.sv:24]
-INFO: [Synth 8-6155] done synthesizing module 'parzen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/parzen.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'window_multiplier' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/window_multiplier_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'window_multiplier' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/window_multiplier_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'xfft_0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/xfft_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'xfft_0' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/xfft_0_stub.v:5]
-WARNING: [Synth 8-689] width (96) of port connection 'm_axis_data_tdata' does not match port width (80) of module 'xfft_0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/ethernet_top.sv:186]
 INFO: [Synth 8-6157] synthesizing module 'endian_switch' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/endian_switch.sv:5]
 	Parameter BYTE_SIZE bound to: 8 - type: integer 
 	Parameter INPUT_BYTES bound to: 4 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'endian_switch' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/endian_switch.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'packet_gen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/packet_gen.sv:24]
+	Parameter SOURCE_MAC bound to: 48'b000000000001100000111110000000011110101101101110 
 	Parameter DEST_MAC bound to: 48'b001111000111110000111111000110101110101000000010 
-	Parameter PACKET_PAYLOAD_WORDS bound to: 256 - type: integer 
+	Parameter PACKET_PAYLOAD_WORDS bound to: 128 - type: integer 
 	Parameter WORD_BYTES bound to: 4 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'eth_header_gen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_header_gen.sv:24]
 	Parameter SOURCE_MAC bound to: 48'b000000000001100000111110000000011110101101101110 
 	Parameter DEST_MAC bound to: 48'b001111000111110000111111000110101110101000000010 
-	Parameter PACKET_PAYLOAD_BYTES bound to: 1024 - type: integer 
+	Parameter PACKET_PAYLOAD_BYTES bound to: 512 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'endian_switch__parameterized0' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/endian_switch.sv:5]
 	Parameter BYTE_SIZE bound to: 8 - type: integer 
 	Parameter INPUT_BYTES bound to: 6 - type: integer 
@@ -81,80 +67,72 @@ INFO: [Synth 8-6157] synthesizing module 'endian_switch__parameterized1' [C:/Use
 	Parameter INPUT_BYTES bound to: 2 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'endian_switch__parameterized1' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/endian_switch.sv:5]
 INFO: [Synth 8-6155] done synthesizing module 'eth_header_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_header_gen.sv:24]
-INFO: [Synth 8-6157] synthesizing module 'data_fifo' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/data_fifo_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'data_fifo' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/realtime/data_fifo_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'data_fifo' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/realtime/data_fifo_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'data_fifo' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/realtime/data_fifo_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'crc_gen' [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/crc_gen.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'crc_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/crc_gen.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'packet_gen' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/packet_gen.sv:24]
 INFO: [Synth 8-6155] done synthesizing module 'ethernet_top' (0#1) [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/ethernet_top.sv:1]
-WARNING: [Synth 8-6014] Unused sequential element b_valid_q2_reg was removed.  [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/parzen.sv:224]
-WARNING: [Synth 8-6014] Unused sequential element b2_valid_q2_reg was removed.  [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/parzen.sv:228]
 WARNING: [Synth 8-3917] design ethernet_top has port ETH_MDC driven by constant 0
 WARNING: [Synth 8-7129] Port ETH_MDIO in module ethernet_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH_RXERR in module ethernet_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH_INTN in module ethernet_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1294.664 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1293.344 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1294.664 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1293.344 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1294.664 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1293.344 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1294.664 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1293.344 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/cic_compiler/cic_compiler_0/cic_compiler_0_in_context.xdc] for cell 'pdm_microphone_i/cic_compiler'
-Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/cic_compiler/cic_compiler_0/cic_compiler_0_in_context.xdc] for cell 'pdm_microphone_i/cic_compiler'
-Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'eth_rst_gen_i/gen_50M'
-Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'eth_rst_gen_i/gen_50M'
-Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/xfft_0/xfft_0/xfft_0_in_context.xdc] for cell 'xfft_0_i'
-Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/xfft_0/xfft_0/xfft_0_in_context.xdc] for cell 'xfft_0_i'
-Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/window_multiplier/window_multiplier/window_multiplier_in_context.xdc] for cell 'window_multiplier_i'
-Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/window_multiplier/window_multiplier/window_multiplier_in_context.xdc] for cell 'window_multiplier_i'
-Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/data_fifo/data_fifo/data_fifo_in_context.xdc] for cell 'packet_gen_i/data_fifo_i'
-Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/data_fifo/data_fifo/data_fifo_in_context.xdc] for cell 'packet_gen_i/data_fifo_i'
+Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/cic_compiler/cic_compiler_0/cic_compiler_0_in_context.xdc] for cell 'pdm_microphone_i/cic_compiler'
+Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/cic_compiler/cic_compiler_0/cic_compiler_0_in_context.xdc] for cell 'pdm_microphone_i/cic_compiler'
+Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'eth_rst_gen_i/gen_50M'
+Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'eth_rst_gen_i/gen_50M'
+Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/data_fifo/data_fifo/data_fifo_in_context.xdc] for cell 'packet_gen_i/data_fifo_i'
+Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/data_fifo/data_fifo/data_fifo_in_context.xdc] for cell 'packet_gen_i/data_fifo_i'
 Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/constraints/Nexys-4-DDR-Master.xdc]
 Finished Parsing XDC File [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/constraints/Nexys-4-DDR-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/constraints/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ethernet_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/ethernet_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1306.629 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1351.105 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1306.629 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1351.105 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1306.629 ; gain = 11.965
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1306.629 ; gain = 11.965
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for CLK. (constraint file  C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK. (constraint file  C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-20332-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for CLK. (constraint file  C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK. (constraint file  C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/.Xil/Vivado-21884-DESKTOP-8PI2STL/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 6).
 Applied set_property KEEP_HIERARCHY = SOFT for pdm_microphone_i/cic_compiler. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for eth_rst_gen_i/gen_50M. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for xfft_0_i. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for window_multiplier_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for packet_gen_i/data_fifo_i. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1306.629 ; gain = 11.965
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'packet_gen'
 ---------------------------------------------------------------------------------------------------
@@ -170,47 +148,40 @@ INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in modul
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'packet_gen'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1306.629 ; gain = 11.965
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   69 Bit       Adders := 1     
-	   2 Input    8 Bit       Adders := 2     
+	   2 Input   64 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 	   2 Input      1 Bit         XORs := 22    
 +---Registers : 
 	              112 Bit    Registers := 1     
+	               64 Bit    Registers := 1     
 	               56 Bit    Registers := 1     
-	               48 Bit    Registers := 2     
 	               32 Bit    Registers := 3     
-	               27 Bit    Registers := 2     
-	               24 Bit    Registers := 5     
-	                8 Bit    Registers := 5     
+	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 12    
-+---Multipliers : 
-	              24x48  Multipliers := 1     
-	              38x38  Multipliers := 2     
+	                1 Bit    Registers := 7     
 +---Muxes : 
 	   2 Input  112 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 1     
 	   2 Input   56 Bit        Muxes := 1     
 	   2 Input   32 Bit        Muxes := 3     
 	   7 Input   32 Bit        Muxes := 4     
-	   2 Input   17 Bit        Muxes := 2     
-	   2 Input    8 Bit        Muxes := 3     
 	   7 Input    7 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 7     
 	   2 Input    4 Bit        Muxes := 3     
 	   2 Input    3 Bit        Muxes := 1     
 	   7 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 19    
+	   2 Input    1 Bit        Muxes := 16    
 	   7 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -228,131 +199,31 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP parzen_i/b2_q0, operation Mode is: A*B.
-DSP Report: operator parzen_i/b2_q0 is absorbed into DSP parzen_i/b2_q0.
-DSP Report: operator parzen_i/b2_q0 is absorbed into DSP parzen_i/b2_q0.
-DSP Report: Generating DSP parzen_i/b3_q1, operation Mode is: A2*B2.
-DSP Report: register parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: register parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: operator parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: operator parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: Generating DSP parzen_i/b3_q1, operation Mode is: A2*B2.
-DSP Report: register parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: register parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: operator parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: operator parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: Generating DSP parzen_i/b3_q1, operation Mode is: (PCIN>>17)+A2*B2.
-DSP Report: register parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: register parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: operator parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: operator parzen_i/b3_q1 is absorbed into DSP parzen_i/b3_q1.
-DSP Report: Generating DSP fft_data_im_sq, operation Mode is: A*B.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: Generating DSP fft_data_im_sq, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: Generating DSP fft_data_im_sq, operation Mode is: A*B.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: Generating DSP fft_data_im_sq, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: operator fft_data_im_sq is absorbed into DSP fft_data_im_sq.
-DSP Report: Generating DSP fft_data_re_sq, operation Mode is: A*B.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: Generating DSP fft_data_re_sq, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: Generating DSP fft_data_re_sq, operation Mode is: A*B.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: Generating DSP fft_data_re_sq, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
-DSP Report: operator fft_data_re_sq is absorbed into DSP fft_data_re_sq.
 WARNING: [Synth 8-3917] design ethernet_top has port M_LRSEL driven by constant 0
 WARNING: [Synth 8-3917] design ethernet_top has port ETH_MDC driven by constant 0
 WARNING: [Synth 8-7129] Port ETH_MDIO in module ethernet_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH_RXERR in module ethernet_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH_INTN in module ethernet_top is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[47]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[46]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[45]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[44]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[43]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[42]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[41]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[40]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[39]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[38]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[37]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[36]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[35]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[34]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[33]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[32]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[15]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[14]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[13]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[12]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[11]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[10]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[9]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[8]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[7]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[6]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[5]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[4]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[3]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[2]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[1]) is unused and will be removed from module ethernet_top.
-WARNING: [Synth 8-3332] Sequential element (parzen_i/b2_q1_reg[0]) is unused and will be removed from module ethernet_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1306.629 ; gain = 11.965
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP, Shift Register and Retiming Reporting
----------------------------------------------------------------------------------
-
-DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+-------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name  | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|parzen       | A*B              | 25     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A2*B2            | 25     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A2*B2            | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | (PCIN>>17)+A2*B2 | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B              | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | (PCIN>>17)+A*B   | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | (PCIN>>17)+A*B   | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B              | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | (PCIN>>17)+A*B   | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | (PCIN>>17)+A*B   | 21     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+-------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1324.891 ; gain = 30.227
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1363.281 ; gain = 68.617
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -370,118 +241,94 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
-DSP Final Report (the ' indicates corresponding REG is set)
-+-------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name  | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|ethernet_top | A*B            | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | PCIN>>17+A*B   | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B            | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | PCIN>>17+A*B   | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B            | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | PCIN>>17+A*B   | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A*B            | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | PCIN>>17+A*B   | 30     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|parzen       | A*B            | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A'*B'          | 17     | 14     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | A'*B'          | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|ethernet_top | PCIN>>17+A'*B' | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-+-------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-
 Report BlackBoxes: 
-+------+------------------+----------+
-|      |BlackBox name     |Instances |
-+------+------------------+----------+
-|1     |window_multiplier |         1|
-|2     |xfft_0            |         1|
-|3     |clk_wiz_0         |         1|
-|4     |data_fifo         |         1|
-|5     |cic_compiler_0    |         1|
-+------+------------------+----------+
++------+---------------+----------+
+|      |BlackBox name  |Instances |
++------+---------------+----------+
+|1     |clk_wiz_0      |         1|
+|2     |data_fifo      |         1|
+|3     |cic_compiler_0 |         1|
++------+---------------+----------+
 
 Report Cell Usage: 
-+------+------------------+------+
-|      |Cell              |Count |
-+------+------------------+------+
-|1     |cic_compiler      |     1|
-|2     |clk_wiz           |     1|
-|3     |data_fifo         |     1|
-|4     |window_multiplier |     1|
-|5     |xfft              |     1|
-|6     |CARRY4            |   113|
-|7     |DSP48E1           |    12|
-|9     |LUT1              |    51|
-|10    |LUT2              |   408|
-|11    |LUT3              |    88|
-|12    |LUT4              |    97|
-|13    |LUT5              |    81|
-|14    |LUT6              |   108|
-|15    |FDPE              |    32|
-|16    |FDRE              |   373|
-|17    |FDSE              |    14|
-|18    |IBUF              |     2|
-|19    |OBUF              |     8|
-|20    |OBUFT             |     3|
-+------+------------------+------+
++------+-------------+------+
+|      |Cell         |Count |
++------+-------------+------+
+|1     |cic_compiler |     1|
+|2     |clk_wiz      |     1|
+|3     |data_fifo    |     1|
+|4     |CARRY4       |    36|
+|5     |LUT1         |     9|
+|6     |LUT2         |   145|
+|7     |LUT3         |    51|
+|8     |LUT4         |    63|
+|9     |LUT5         |    90|
+|10    |LUT6         |    43|
+|11    |FDPE         |    32|
+|12    |FDRE         |   330|
+|13    |FDSE         |     6|
+|14    |IBUF         |     2|
+|15    |OBUF         |     8|
+|16    |OBUFT        |     3|
++------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 38 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1376.543 ; gain = 69.914
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 1376.543 ; gain = 81.879
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:27 . Memory (MB): peak = 1351.105 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1351.105 ; gain = 57.762
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 1387.895 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 125 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1351.105 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1394.477 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1351.105 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 16747091
+Synth Design complete, checksum: e063e1bd
 INFO: [Common 17-83] Releasing license: Synthesis
-60 Infos, 48 Warnings, 0 Critical Warnings and 0 Errors encountered.
+52 Infos, 12 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 1394.477 ; gain = 99.812
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:33 . Memory (MB): peak = 1351.105 ; gain = 57.762
 INFO: [Common 17-1381] The checkpoint 'C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/ethernet_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file ethernet_top_utilization_synth.rpt -pb ethernet_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 18:54:36 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 19:56:23 2023...
