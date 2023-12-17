@@ -108,26 +108,23 @@ The Ethernet header is a crucial part of network communications, containing seve
 
 #### Debounce Switch
 
-<!-- Mention about the debounce switch -->
+The <b>rst_gen</b> module generates a synchronous reset signal, employing a three-bit shift register to eliminate debounce effects and ensuring the output reset is active low when the input reset signal has been consistently low for the last three clock cycles.
 
 #### Clock Wiz IP
 
-<!-- Mention about the IP -->
+Clocking Wizard IP takes advantage of pre-optimized modules that utilize dedicated FPGA clock routing paths, ensuring efficient clock distribution hence a faster clock.
 
-### Packet gen
-
-<!-- Gagana -->
-
-#### Header Package
+### Packet generator
 
 <!-- Gagana -->
+
+#### Header generator
+
+We generate ethernet header object based on specific parameters, such as source and destination MAC address and packet payload size. It incorporates an endian switch to account for the little-endian nature of the Nexys 4 DDR board, ensuring proper byte ordering compatibility with our PC.
 
 #### State machine
 
 <!-- Gagana -->
-
-![State Machine](./Img/fsm_packet_gen.png)
-
 - IDLE
 - PREAMBLE
 - SFD (Start Frame Delimiter)
@@ -136,6 +133,21 @@ The Ethernet header is a crucial part of network communications, containing seve
 - FCS (Frame Check Sequence)
 - WAIT
 
-#### CRC Generator
+![State Machine](./Img/fsm_packet_gen.png)
 
-<!-- Gagana -->
+#### CRC (Cyclic Redundancy Check) Generator
+
+This module generates a 32-bit cyclic redundancy check (CRC) output based on a specified polynomial for error detection. It incorporates a linear feedback shift register (LFSR) with a reset mechanism and is intended for generating a CRC for an Ethernet frame check sequence.
+
+<br>
+In Ethernet frames, the frame check sequence (FCS) is a field that contains the cyclic redundancy check (CRC) value. The CRC is calculated over the entire frame, excluding the FCS itself, and is then appended to the frame. When the frame is received, the CRC is recalculated over the received frame data (excluding the received FCS), and the newly calculated CRC is compared to the received FCS.
+
+<br>
+
+If the recalculated CRC matches the received FCS, it indicates that the frame has not been corrupted during transmission, and it's considered valid. If there is a mismatch, it suggests that errors may have occurred in the transmission or reception of the frame, and the frame is typically discarded.
+
+So, the FCS (containing the CRC) is used for error detection, ensuring the integrity of the transmitted data in Ethernet frames.
+
+#### FIFO 
+
+The FIFO (First-In-First-Out) buffer in the module is used to store incoming data temporarily, ensuring a continuous flow of data to assemble a complete Ethernet packet for transmission. This allows the module to manage the variable arrival rates of data and ensures that the entire packet is transmitted once it is gathered.
