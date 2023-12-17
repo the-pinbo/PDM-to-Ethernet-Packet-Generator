@@ -1,7 +1,7 @@
 import pyshark
 
 
-PCAP_FILE_PATH = r'C:\Users\inba2\Desktop\DDFPGA\TermProject\ddfpga-project\python\caputre_ws.pcapng'
+PCAP_FILE_PATH = r'C:\Users\inba2\Desktop\DDFPGA\TermProject\ddfpga-project\python\caputre_ws_2.pcapng'
 DEST_SRC_MAC = b'<|?\x1a\xea\x02\x00\x18>\x01\xebn'
 
 
