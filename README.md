@@ -47,7 +47,7 @@ The Nexys4DDR acquires PDM data from the built-in microphone, applies digital fi
 
 3. **Build the Project**
 
-   - Use `Generate Bitstream` in Vivado.![Generate-Bitstream.png](.Img\Generate-Bitstream.png)
+   - Use `Generate Bitstream` in Vivado.![Generate-Bitstream.png](./Img/Generate-Bitstream.png)
    - Run Synthesis and Implementation steps.
 
 4. **Program the Board**

@@ -1,78 +1,30 @@
-# Nexys 4 DDR PDM-MIC ETHERNET FRAME GENERATOR
+1. **FCS Overview**:
 
-## Overview
+   - The Frame Check Sequence is a 4-octet (32-bit) Cyclic Redundancy Check (CRC).
+   - It detects corrupted data within an Ethernet frame.
 
-This project involves the Nexys4DDR, which processes data from a built-in microphone using Pulse Density Modulation (PDM). It features digital filtering for decimation and resolution enhancement, audio data reverberation, Fast Fourier Transform (FFT) computation over the ethernet interface using 100 base T standard.
+2. **Computation Basis**:
 
-### Peripherals Used
+   - FCS is calculated based on protected MAC frame fields: source and destination addresses, length/type field, MAC client data, and padding.
 
-- PDM microphone
-- 10/100 Ethernet PHY
+3. **CRC-32 Algorithm**:
 
-### Features
+   - Left shifting CRC-32: Polynomial = `0x4C11DB7`, Initial CRC = `0xFFFFFFFF`, Post complemented, Verify value = `0x38FB2284`.
+   - Data is transmitted least significant bit first, but FCS is transmitted most significant bit first.
 
-- **Audio Processing:** 16-bit resolution, 48KSPS sampling rate.
-- **FFT Analysis:** FFT computation with 512 bins, visualizing the first 80 FFT bins on VGA and 30 bins on an LED strip.
-- **LED Visualization:** WS2812 LED string displays the first 30 FFT bins.
+4. **Alternative CRC-32 Algorithm**:
 
-## Prerequisites
+   - Right shifting CRC-32: Polynomial = `0xEDB88320`, Initial CRC = `0xFFFFFFFF`, Post complemented, Verify value = `0x2144DF1C`.
+   - Results in a bit-reversed FCS, with data and CRC both transmitted least significant bit first.
 
-### Hardware
+5. **Receiver Processing**:
 
-- Nexys 4 DDR FPGA board
-- Micro-USB cable
-- Ethernet cable
+   - Receiver calculates a new FCS as data is received and compares it with the received FCS.
+   - Alternatively, a CRC is calculated on received data and FCS, resulting in a fixed non-zero verify value (`0x2144DF1C`).
 
-### Software
+6. **Hardware Implementation**:
+   - Logically right shifting CRC may use a left shifting Linear Feedback Shift Register.
+   - The residue for a right shifting implementation would be the complement of `0x2144DF1C` = `0xDEBB20E3`.
+   - For a left shifting implementation, the complement of `0x38FB2284` = `0xC704DD7B`.
 
-- [Vivado Design Suite 2021.1+](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2022-1.html) _(Procedure may vary with other versions)_
-- [Python (latest version)](https://www.python.org/downloads/)
-- [Wireshark](https://www.wireshark.org/download.html)
-
-## Setup Instructions
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/the-pinbo/ddfpga-project.git
-   ```
-
-2. **Generate the Project**
-
-   - Open Vivado.
-   - Click `Run Tcl Script` in the tools window.
-   - Navigate to `ddfpga-project/project` and select `efsm.tcl`.
-   - Upgrade IPs if necessary via `Reports > Report IP Status`.
-   - **Note:** Change MAC address before generating the bitstream.
-
-3. **Viewing MAC Address**
-
-   - **Linux:** Use `ifconfig -a` in terminal.
-   - **Windows:** Use `ipconfig /all` in Command Prompt.
-
-4. **Build the Project**
-
-   - Use `Generate Bitstream` in Vivado.
-   - Run Synthesis and Implementation steps.
-
-5. **Program the Board**
-
-   - Connect the FPGA board.
-   - Use `Auto-Connect` in hardware manager.
-   - Load the program with `program device`.
-
-6. **Capture Packets**
-
-   - Connect Ethernet from FPGA to computer.
-   - Use Wireshark for packet analysis.
-   - Save packets as `.pcap` for processing.
-
-7. **Signal Processing with Python**
-
-   - Set up a virtual environment and install dependencies.
-   - Run `wireshark_analysis.ipynb` or `receive_wav.py` (Linux only).
-
-8. **Play Back Audio**
-   - Enjoy the processed voice through the microphone.
-
-For detailed implementation, see [Implementation Details](report.md).
+This format focuses on the key aspects of FCS in Ethernet frames, suitable for a high-level presentation.
