@@ -1,36 +1,17 @@
-# ddfpga-project
+# Nexys 4 DDR PDM-MIC ETHERNET FRAME GENERATOR
 
-## Nexys 4 DDR PDM-MIC ETHERNET FRAME GENERATOR
+## Overview
 
-`vivado-2022.1` : download
+This project involves the Nexys4DDR, which processes data from a built-in microphone using Pulse Density Modulation (PDM). It includes digital filtering for decimation and resolution enhancement, as well as audio data reverberation. Additionally, it performs Fast Fourier Transform (FFT) computations over the Ethernet interface using the 100-base-T standard. The packets are captured on the host machine using `RAW_SOCKETS` and processed using various signal processing algorithms.
 
-## Features Used
+### Peripherals Used
 
-|                                   | Not Used | Used |
-| --------------------------------- | :------: | :--: |
-| 16 user switches                  |    X     |      |
-| 16 user LEDs                      |    X     |      |
-| Two tri-color LEDs                |    X     |      |
-| 5 User Push Buttons               |    X     |      |
-| Two 4-digit 7-segment displays    |    X     |      |
-| 4 Pmod ports                      |    X     |      |
-| Pmod for XADC signals             |    X     |      |
-| 12-bit VGA output                 |    X     |      |
-| USB-UART Bridge                   |    X     |      |
-| Serial Flash for Application Data |    X     |      |
-| USB HID Host With Mouse           |    X     |      |
-| USB HID Host With Keyboard        |    X     |      |
-| Micro SD card connector           |    X     |      |
-| PWM audio output                  |    X     |      |
-| PDM microphone                    |          |  X   |
-| 3-axis accelerometer              |    X     |      |
-| 128MiB DDR2                       |    X     |      |
-| Temperature sensor                |    X     |      |
-| 10/100 Ethernet PHY               |          |  X   |
+- PDM microphone
+- 10/100 Ethernet PHY
 
 ## Description
 
-The Nexys4DDR gets PDM data from the built-in microphone, then digitally filters data for decimation and resolution (16 bit, 48KSPS). Then reverberates the audio data and outputs it to the built-in Audio Out, stores a frame of 1024 samples and shows it on a VGA display (640×480, 60Hz). then the demo computes the Fast Fournier Transform (FFT) of the stored data (512 bins x 46.875 Hz = 0…24KHz). The demo shows the first 80 FFT bins on the VGA display (80 bins x 46.875 Hz = 0…3.75KHz) and displays the first 30 FFT bins on an WS2812 LED string (30 bins x 46.875 Hz = 0…1.4KHz),
+The Nexys4DDR acquires PDM data from the built-in microphone, applies digital filtering for decimation and resolution (16-bit, 48KSPS), and subsequently adds audio reverberation before outputting it through the built-in Audio Out interface. Following this, the machine computes the Fast Fourier Transform (FFT) of the time-domain signal and transmits it over the Ethernet. On the host side, we capture the packets using `RAW_SOCKETS` and display the real-time Fourier spectrum or play back the recorded audio signal.
 
 ## Prerequisites
 
@@ -38,19 +19,17 @@ The Nexys4DDR gets PDM data from the built-in microphone, then digitally filters
 
 - Nexys 4 DDR FPGA board
 - Micro-USB cable
-- A 30 led strip of WS2812 LEDs (Not required for VGA operation)
-- Monitor with a VGA cable (Not required for WS2812 operation)
+- Ethernet cable
 
 ### Software
 
-- [Vivado Design Suite 2021.X](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2022-1.html)
-  _Newer/older versions can be used, but the procedure may vary slightly_
-- Latest version of [Python](https://www.python.org/downloads/)
+- [Vivado Design Suite 2021.1+](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2022-1.html) _(Procedure may vary with other versions)_
+- [Python (latest version)](https://www.python.org/downloads/)
 - [Wireshark](https://www.wireshark.org/download.html)
 
-## Setup
+## Setup Instructions
 
-1. **Clone repo**
+1. **Clone the Repository**
 
    ```bash
    git clone https://github.com/the-pinbo/ddfpga-project.git
@@ -58,96 +37,61 @@ The Nexys4DDR gets PDM data from the built-in microphone, then digitally filters
 
 2. **Generate the Project**
 
-   Open Vivado and find the tools window in the top and click on `Run Tcl Script`
-
-   ![Run Tcl Script](./Img/run-tcl-script-1.png)
-
-   Navigate to the directory `ddfpga-project` and navigate to the `project` directory and click on `efsm.tcl` file to create the project
-
-   ![Run Tcl Script](./Img/run-tcl-script-2.png)
-
-   The tcl script will create a new project with the source files, constraints, and any supplementary files included.
-
-   The IP's used in the current project might have undergone changes or upgradation, navigate to `Reports > Report IP Status` and upgrade the IP's if required.
-   ![Report IP Status](./Img/Report-IP-Status.png)
-   Note: sometimes if the IP's have undergone drastic revisions, manual intervention might be required.
-
-   **NOTE** the following project has the MAC address of the receiver hard corded, so its is necessary to change the MAC address before generating the bit-stream.
-
-## Viewing the MAC Address on Linux
-
-To view the MAC address on a Linux system, follow these steps:
-
-1.  Open a terminal.
-2.  Type the following command and press Enter:
-
-```bash
-ifconfig -a
-```
-
-Look for the eth0 interface or similar for Ethernet, and find the HWaddr or ether field which will display the MAC address.
-
-## Viewing the MAC Address on Windows
-
-Open Command Prompt.
-Type the following command and press Enter:
-
-```cmd
-ipconfig /all
-```
+   - Open Vivado.
+   - Click `Run Tcl Script` in the tools window. ![Run Tcl Script](./Img/run-tcl-script-1.png)
+   - Navigate to `ddfpga-project/project` and select `efsm.tcl`. ![Run Tcl Script](./Img/run-tcl-script-2.png)
+   - Upgrade IPs if necessary via `Reports > Report IP Status`. ![Report IP Status](./Img/Report-IP-Status.png)
+   - **Note:** Change MAC address before generating the bitstream.
+     - **Linux:** Use `ifconfig -a` in terminal.
+     - **Windows:** Use `ipconfig /all` in Command Prompt.
 
 3. **Build the Project**
 
-   Click Generate Bitstream on the left hand menu towards the bottom. Vivado will run through both Run Synthesis and Run Implementation before it generates the bitstream automatically.
+   - Use `Generate Bitstream` in Vivado.![Generate-Bitstream.png](.Img\Generate-Bitstream.png)
+   - Run Synthesis and Implementation steps.
 
-   Note: If you want, you can click each step by itself in the order of Run Synthesis, Run Implementation and then Generate Bitstream.
+4. **Program the Board**
 
-   ![Generate-Bitstream.png](.Img\Generate-Bitstream.png)
+   - Connect the FPGA board.
+   - Use `Auto-Connect` in hardware manager. ![hw-manager-auto-conn](./Img/hw-manager-auto-conn.png)
+   - Load the program with `program device`. ![prog-dev](./Img/prog-dev.png)
 
-4. **Program the board**
-   Once you have generated your bit file, Connect your FPGA board and Click on the hardware manager and connect to your board by choosing the Auto-Connect option.
-   ![hw-manager-auto-conn](./Img/hw-manager-auto-conn.png)
+5. **Capture Packets**
 
-   Once the divide has been connected load the program by clicking on program device.
-   ![prog-dev](./Img/prog-dev.png)
+   - Connect Ethernet from FPGA to computer.
+   - Use [Wireshark](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCapturingSection.html) for packet analysis.
+   - Save packets as `.pcap` for processing.
 
-5. **Caputre the packets on the host**
-   Connect the enthernet cable from the FPGA mac port to your computers MAC port.
-   Open WireShark to capture and analyse the packets
-   Click on your primary ethernet interface to view the packets
-   Analyze the packets in the wireshark utility.
-   Caputre the packets and save the packets as a `.pcap` file for further processing and expeloration
+6. **Setting Up a Virtual Environment**
 
-6. **Signal processing on python**
-   Now we will have to deframement the packets and do some signal processing in order to generate the Audio file.
+   - Linux
 
-   ### Create a virtual env
+     ```shell
+     python3 -m venv venv
+     source venv/bin/activate
+     pip install -r requirements.txt
+     ```
 
-   **Linux**
+   - Windows
 
-```cmd
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+     ```shell
+     python -m venv venv
+     .\venv\Scripts\activate
+     pip install -r requirements.txt
+     ```
 
-**Windows**
+7. **Packet Defragmentation and Audio Generation**
 
-```bash
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
+   This process involves defragmenting packets and performing signal processing to generate an audio file from the captured data.
 
-Run `python\wireshark_analysis.ipynb` to analyze and generate the audio in a `.wav` format.
+   - **Generating Audio Using Wireshark Analysis**
+     Run python\wireshark_analysis.ipynb to analyze the data and generate an audio file in .wav format.
+   - **Generating Audio Directly (Linux Only)**
+     **Note: This method requires sudo access.**
+     1. Open `python\receive_wav.py` and configure the Ethernet interface and destination MAC address.
+     2. Run the `receive_wav.py` file.
 
-**Alternatively**
-_Works only on linux_
+8. **Play Back Audio**
+   - Enjoy the processed voice through the microphone.
 
-Change the ethernet interface and set the respective destination mac address on `python\receive_wav.py` and run this file to directly generate the wav file without using wireshark.
-This uses RAW-SOCKETS which requires sudo access.
-
-7. **Enjoy your voice through the mic**
-   Play back the audio generated and enjoy your voice thorugh the pdm Microphone, happy learning.
-
-Click on this to view the implementation details Implementation details
+For detailed implementation, see [Implementation Details](report.md).
