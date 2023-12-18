@@ -153,6 +153,29 @@ So, the FCS (containing the CRC) is used for error detection, ensuring the integ
 
 The FIFO (First-In-First-Out) buffer in the module is used to store incoming data temporarily, ensuring a continuous flow of data to assemble a complete Ethernet packet for transmission. This allows the module to manage the variable arrival rates of data and ensures that the entire packet is transmitted once it is gathered.
 
+### PDM-MIC
+
+To interface with a PDM microphone, process its output, and provide digital audio data.
+
+- `M_LRSEL `is hard-coded to 0, indicating the audio is from the left channel
+
+#### Data Registering
+
+- Data from the microphone is triple-registered to mitigate any metastability issues due to clock domain crossing.
+
+#### PDM-Clk-Gen
+
+- To generate a clock signal for a PDM microphone.
+- The module divides the input clock frequency to achieve the desired output frequency (2.5 MHz)
+- For frequencies less than 5 MHz, a different approach is used instead of a clock wizard, instead we use counter logic to divide the frequency.
+
+#### CIC Filter
+
+- The CIC filter is a type of digital filter often used in digital signal processing, particularly for decimation and interpolation.
+- The filter takes the registered PDM data and the m_clk_rising signal as inputs.
+- The output of the filter (cic_out_data and cic_out_valid) represents the processed digital audio data.
+- The PDM data is extended and inverted to form an 8-bit value before being fed into the CIC filter
+
 ## TODO
 
 - PDM mic
@@ -169,3 +192,4 @@ The FIFO (First-In-First-Out) buffer in the module is used to store incoming dat
 - Host networking
   - raw sockets
 - Host DSP
+- How is the FFT calculated on the Host

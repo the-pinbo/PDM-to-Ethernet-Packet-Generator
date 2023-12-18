@@ -2,9 +2,9 @@ import numpy
 from matplotlib import pyplot as plt
 
 
-fs = 3e6
+fs = 2.4e6
 f0 = 1e3
-N = 2**14
+N = 2**10
 
 w = 2*numpy.pi*f0/fs*numpy.arange(0, N)
 
