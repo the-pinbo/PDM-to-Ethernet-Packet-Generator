@@ -1,30 +1,33 @@
-1. **FCS Overview**:
+- **Module Name**: `pdm_clk_gen`
+- **Purpose**: To generate a clock signal for a PDM microphone.
+- **Parameters**:
+  - `INPUT_FREQ`: The frequency of the input clock signal.
+  - `OUTPUT_FREQ`: The desired frequency of the output clock signal (2.5 MHz in this case).
 
-   - The Frame Check Sequence is a 4-octet (32-bit) Cyclic Redundancy Check (CRC).
-   - It detects corrupted data within an Ethernet frame.
+### Inputs and Outputs
 
-2. **Computation Basis**:
+- **Inputs**:
+  - `clk`: The input clock signal.
+  - `rst`: A reset signal.
+- **Outputs**:
+  - `M_CLK`: The modified clock signal output.
+  - `m_clk_rising`: A signal that indicates the rising edge of the modified clock.
 
-   - FCS is calculated based on protected MAC frame fields: source and destination addresses, length/type field, MAC client data, and padding.
+### Internal Logic
 
-3. **CRC-32 Algorithm**:
+1. **Clock Division**: The module divides the input clock frequency (`INPUT_FREQ`) to achieve the desired output frequency (`OUTPUT_FREQ`). This is done by the `CLK_DIVIDE` parameter which is the ratio of `INPUT_FREQ` to `OUTPUT_FREQ`.
 
-   - Left shifting CRC-32: Polynomial = `0x4C11DB7`, Initial CRC = `0xFFFFFFFF`, Post complemented, Verify value = `0x38FB2284`.
-   - Data is transmitted least significant bit first, but FCS is transmitted most significant bit first.
+2. **Counter Logic**:
 
-4. **Alternative CRC-32 Algorithm**:
+   - A counter (`clk_counter`) is used to track the clock cycles.
+   - The counter increments on every positive edge of the input clock (`clk`).
+   - When the counter reaches half the value of `CLK_DIVIDE`, it resets to zero, and the output clock signal (`m_clk_i`) toggles its state.
 
-   - Right shifting CRC-32: Polynomial = `0xEDB88320`, Initial CRC = `0xFFFFFFFF`, Post complemented, Verify value = `0x2144DF1C`.
-   - Results in a bit-reversed FCS, with data and CRC both transmitted least significant bit first.
+3. **Output Clock Generation**:
+   - `M_CLK` is assigned the value of `m_clk_i`. This is the output clock signal whose frequency is controlled by the division logic.
+   - `m_clk_rising` is a signal that is high (`1`) only when `m_clk_i` transitions from low to high, indicating a rising edge. It's used as an enable signal in other logic.
 
-5. **Receiver Processing**:
+### Comments and Additional Notes
 
-   - Receiver calculates a new FCS as data is received and compares it with the received FCS.
-   - Alternatively, a CRC is calculated on received data and FCS, resulting in a fixed non-zero verify value (`0x2144DF1C`).
-
-6. **Hardware Implementation**:
-   - Logically right shifting CRC may use a left shifting Linear Feedback Shift Register.
-   - The residue for a right shifting implementation would be the complement of `0x2144DF1C` = `0xDEBB20E3`.
-   - For a left shifting implementation, the complement of `0x38FB2284` = `0xC704DD7B`.
-
-This format focuses on the key aspects of FCS in Ethernet frames, suitable for a high-level presentation.
+- For frequencies less than 5 MHz, a different approach is used instead of a clock wizard, as the FPGA has dedicated clock routes designed for higher frequencies.
+- `M_CLK` is used outside the FPGA, specifically for the PDM microphone IC, and not used internally within the FPGA.
