@@ -1,0 +1,71 @@
+@startuml
+' Set the layout direction
+left to right direction
+
+' Define the top package
+package "ethernet_top" {
+    [ethernet_top_sv]
+
+    ' Define sub-packages
+    package "rst_gen" {
+        [rst_gen_sv]
+    }
+
+    package "eth_rst_gen" {
+
+        [eth_rst_gen_sv]
+
+        package "gen_50M" {
+            [clk_wiz_0_xci]
+        }
+    }
+
+
+
+    package "pdm_microphone" {
+        [pdm_microphone_sv]
+
+        package "pdm_clk_gen" {
+            [pdm_clk_gen_sv]
+        }
+
+        package "cic_compiler" {
+            [cic_compiler_0_xci]
+        }
+    }
+
+
+
+    package "endian_switch" {
+        [endian_switch_sv]
+    }
+
+    package "packet_gen" {
+        [packet_gen_sv]
+        package "eth_header_gen" {
+            [eth_header_gen_sv]
+        }
+
+        package "data_fifo" {
+            [data_fifo_xci]
+        }
+
+        package "crc_gen" {
+            [crc_gen_sv]
+        }
+    }
+
+
+}
+
+' Add some spacing between elements
+skinparam package {
+    Padding 25
+    Margin 10
+}
+
+' Add some spacing between arrows
+skinparam arrow {
+    Margin 15
+}
+@enduml

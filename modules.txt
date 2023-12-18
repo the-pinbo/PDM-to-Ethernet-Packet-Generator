@@ -1,0 +1,61 @@
+@startuml
+
+
+' Define the top package
+package "ethernet_top" {
+
+    ' Define sub-packages
+    package "rst_gen" {
+    }
+
+    package "eth_rst_gen" {
+
+
+        package "gen_50M" {
+            [clk_wiz_0_xci]
+        }
+    }
+
+
+
+    package "pdm_microphone" {
+
+        package "pdm_clk_gen" {
+        }
+
+        package "cic_compiler" {
+            [cic_compiler_0_xci]
+        }
+    }
+
+
+
+    package "endian_switch" {
+    }
+
+    package "packet_gen" {
+        package "eth_header_gen" {
+        }
+
+        package "data_fifo" {
+            [data_fifo_xci]
+        }
+
+        package "crc_gen" {
+        }
+    }
+
+
+}
+
+' Add some spacing between elements
+skinparam package {
+    Padding 25
+    Margin 10
+}
+
+' Add some spacing between arrows
+skinparam arrow {
+    Margin 15
+}
+@enduml

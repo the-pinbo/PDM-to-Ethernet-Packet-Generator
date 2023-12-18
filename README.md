@@ -1,128 +1,97 @@
-# ddfpga-project
-ethernet frame state machine
+# Nexys 4 DDR PDM-MIC ETHERNET FRAME GENERATOR
 
-Sure! This is a Verilog module for an Ethernet frame generator. Let's break it down line by line:
+## Overview
 
-1. **Module Definition**:
-   ```
-   module ethernet_top(
-   ```
-   - Declares a module named `ethernet_top`.
+This project involves the Nexys4DDR, which processes data from a built-in microphone using Pulse Density Modulation (PDM). It includes digital filtering for decimation and resolution enhancement, as well as audio data reverberation. Additionally, it performs Fast Fourier Transform (FFT) computations over the Ethernet interface using the 100-base-T standard. The packets are captured on the host machine using `RAW_SOCKETS` and processed using various signal processing algorithms.
 
-2. **Port Definitions**:
-   ```
-   input CLK,
-   input RST_N,
-   ...
-   input ETH_INTN
-   );
-   ```
-   - Declares the module's input, output, and bidirectional (inout) ports.
-   - `CLK`: Clock input.
-   - `RST_N`: Active-low reset input.
-   - `ETH_MDC`, `ETH_MDIO`, etc.: Ethernet-related pins. These pins typically connect to an Ethernet PHY.
+### Peripherals Used
 
-3. **Internal Signals**:
-   ```
-   wire rst;
-   ```
-   - `rst`: Derived reset signal.
+- PDM microphone
+- 10/100 Ethernet PHY
 
-4. **Reset Generation**:
-   ```
-   rst_gen rst_gen_i(
-       .clk_in(CLK),
-       .rst_in(~RST_N),
-       .rst_out(rst)
-   );
-   ```
-   - Instantiates a module `rst_gen` which seems to generate a derived reset signal `rst` using the input `RST_N` and `CLK`.
+## Description
 
-5. **Ethernet Clock and Reset Signals**:
-   ```
-   wire eth_clk;
-   wire eth_rst;
-   ```
-   - Declares the Ethernet-specific clock and reset signals.
+The Nexys4DDR acquires PDM data from the built-in microphone, applies digital filtering for decimation and resolution (16-bit, 48KSPS), and subsequently adds audio reverberation before outputting it through the built-in Audio Out interface. Following this, the machine computes the Fast Fourier Transform (FFT) of the time-domain signal and transmits it over the Ethernet. On the host side, we capture the packets using `RAW_SOCKETS` and display the real-time Fourier spectrum or play back the recorded audio signal.
 
-6. **Streaming Data Variables**:
-   ```
-   wire [7:0] s_axis_tdata;
-   wire       s_axis_tvalid;
-   wire       s_axis_tready;
-   wire       s_axis_tlast;
-   ```
-   - Streaming protocol signals for data transfer. Typically used in AXI Stream-like interfaces.
-   
-7. **Ethernet Boot Mode Configuration**:
-   ```
-   assign ETH_CRSDV  = (eth_rst) ? 1 : 1'bz;
-   assign ETH_RXD[0] = (eth_rst) ? 1 : 1'bz;
-   assign ETH_RXD[1] = (eth_rst) ? 1 : 1'bz;
-   ```
-   - Assigns pull-up values for the Ethernet boot mode configuration when in reset.
+## Prerequisites
 
-8. **MDIO Interface**:
-   ```
-   assign ETH_MDC = 0;
-   ```
-   - Disables the MDIO (Management Data Input/Output) interface by keeping the `ETH_MDC` signal low.
+### Hardware
 
-9. **Ethernet Reset Generation**:
-   ```
-   eth_rst_gen eth_rst_gen_i(
-      ...
-   );
-   ```
-   - Instantiates an Ethernet reset generation module that likely provides the clock and reset signals specific to the Ethernet operation.
+- Nexys 4 DDR FPGA board
+- Micro-USB cable
+- Ethernet cable
 
-10. **Packet Timer Configuration**:
-   ```
-   reg  packet_enable;
-   reg [63:0] packet_timer;
-   localparam packet_max = 5000;
-   ```
-   - Configures a timer (`packet_timer`) that triggers the generation of Ethernet packets when the timer value reaches a maximum (`packet_max`).
+### Software
 
-11. **Packet Data and Size Configurations**:
-   ```
-   parameter PACKET_PAYLOAD_WORDS = 64;
-   parameter WORD_BYTES = 4;
-   reg [WORD_BYTES*8-1:0] packet_data;
-   ```
-   - Defines the size and data for the Ethernet packets. The packet consists of a number of payload words (`PACKET_PAYLOAD_WORDS`), and each word has a size (`WORD_BYTES`).
+- [Vivado Design Suite 2021.1+](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2022-1.html) _(Procedure may vary with other versions)_
+- [Python (latest version)](https://www.python.org/downloads/)
+- [Wireshark](https://www.wireshark.org/download.html)
 
-12. **Packet Timer Increment Logic**:
-   ```
-   always @(posedge eth_clk) begin
-      ...
-   end
-   ```
-   - On every rising edge of the Ethernet clock, this block updates the `packet_timer`, checks the timer value against the max, and possibly triggers packet generation.
+## Setup Instructions
 
-13. **Packet Valid and Last Signal Generation**:
-   ```
-   assign s_axis_tvalid = packet_timer < PACKET_PAYLOAD_WORDS ? 1 : 0;
-   assign s_axis_tlast = packet_timer == PACKET_PAYLOAD_WORDS-1;
-   ```
-   - Sets the `s_axis_tvalid` signal when the timer is within the payload length and sets the `s_axis_tlast` signal when the timer reaches the last word.
+1. **Clone the Repository**
 
-14. **Packet Generation Instance**:
+   ```bash
+   git clone https://github.com/the-pinbo/ddfpga-project.git
    ```
-   packet_gen
-     #(
-       .PACKET_PAYLOAD_WORDS(PACKET_PAYLOAD_WORDS),
-       .WORD_BYTES(WORD_BYTES),
-       .DEST_MAC(48'H3C_7C_3F_1A_EA_02)
-       ) packet_gen_i
-     (
-      ...
-      );
-   ```
-   - Instantiates a module named `packet_gen` that seems to generate the actual Ethernet packets.
-   - The parameters passed include payload word size, word byte size, and a destination MAC address.
 
-15. **End of Module**:
-   ```
-   endmodule
-  
+2. **Generate the Project**
+
+   - Open Vivado.
+   - Click `Run Tcl Script` in the tools window. ![Run Tcl Script](./Img/run-tcl-script-1.png)
+   - Navigate to `ddfpga-project/project` and select `efsm.tcl`. ![Run Tcl Script](./Img/run-tcl-script-2.png)
+   - Upgrade IPs if necessary via `Reports > Report IP Status`. ![Report IP Status](./Img/Report-IP-Status.png)
+   - **Note:** Change MAC address before generating the bitstream.
+     - **Linux:** Use `ifconfig -a` in terminal.
+     - **Windows:** Use `ipconfig /all` in Command Prompt.
+
+3. **Build the Project**
+
+   - Use `Generate Bitstream` in Vivado.![Generate-Bitstream.png](./Img/Generate-Bitstream.png)
+   - Run Synthesis and Implementation steps.
+
+4. **Program the Board**
+
+   - Connect the FPGA board.
+   - Use `Auto-Connect` in hardware manager. ![hw-manager-auto-conn](./Img/hw-manager-auto-conn.png)
+   - Load the program with `program device`. ![prog-dev](./Img/prog-dev.png)
+
+5. **Capture Packets**
+
+   - Connect Ethernet from FPGA to computer.
+   - Use [Wireshark](https://www.wireshark.org/docs/wsug_html_chunked/ChCapCapturingSection.html) for packet analysis.
+   - Save packets as `.pcap` for processing.
+
+6. **Setting Up a Virtual Environment**
+
+   - Linux
+
+     ```shell
+     python3 -m venv venv
+     source venv/bin/activate
+     pip install -r requirements.txt
+     ```
+
+   - Windows
+
+     ```shell
+     python -m venv venv
+     .\venv\Scripts\activate
+     pip install -r requirements.txt
+     ```
+
+7. **Packet Defragmentation and Audio Generation**
+
+   This process involves defragmenting packets and performing signal processing to generate an audio file from the captured data.
+
+   - **Generating Audio Using Wireshark Analysis**
+     Run python\wireshark_analysis.ipynb to analyze the data and generate an audio file in .wav format.
+   - **Generating Audio Directly (Linux Only)**
+     **Note: This method requires sudo access.**
+     1. Open `python\receive_wav.py` and configure the Ethernet interface and destination MAC address.
+     2. Run the `receive_wav.py` file.
+
+8. **Play Back Audio**
+   - Enjoy the processed voice through the microphone.
+
+For detailed implementation, see [Implementation Details](report.md).

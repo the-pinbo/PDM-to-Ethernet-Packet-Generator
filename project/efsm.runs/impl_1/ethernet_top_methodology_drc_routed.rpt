@@ -1,0 +1,111 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
+| Date         : Mon Dec 18 12:11:20 2023
+| Host         : DESKTOP-8PI2STL running 64-bit major release  (build 9200)
+| Command      : report_methodology -file ethernet_top_methodology_drc_routed.rpt -pb ethernet_top_methodology_drc_routed.pb -rpx ethernet_top_methodology_drc_routed.rpx
+| Design       : ethernet_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 11
++-----------+------------------+------------------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                                      | Violations |
++-----------+------------------+------------------------------------------------------------------+------------+
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree               | 1          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks                   | 1          |
+| TIMING-7  | Critical Warning | No common node between related clocks                            | 1          |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin                        | 1          |
+| CKLD-2    | Warning          | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
+| HPDR-1    | Warning          | Port pin direction inconsistency                                 | 3          |
+| LUTAR-1   | Warning          | LUT drives async reset alert                                     | 2          |
+| TIMING-18 | Warning          | Missing input or output delay                                    | 1          |
++-----------+------------------+------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-4#1 Critical Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock eth_rst_gen_i/gen_50M/inst/clk_in1 is defined downstream of clock sys_clk_pin and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks sys_clk_pin and clk_out1_clk_wiz_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk_pin] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks sys_clk_pin and clk_out1_clk_wiz_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk_pin] -to [get_clocks clk_out1_clk_wiz_0]
+Related violations: <none>
+
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock eth_rst_gen_i/gen_50M/inst/clk_in1 is created on an inappropriate internal pin eth_rst_gen_i/gen_50M/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+CKLD-2#1 Warning
+Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads  
+Clock net CLK_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): CLK_IBUF_inst/O, eth_rst_gen_i/CLK, rst_gen_i/CLK
+Related violations: <none>
+
+HPDR-1#1 Warning
+Port pin direction inconsistency  
+Hierarchical port(pin) ETH_CRSDV direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (ETH_CRSDV) connected to this Port, but both were not found.
+Related violations: <none>
+
+HPDR-1#2 Warning
+Port pin direction inconsistency  
+Hierarchical port(pin) ETH_RXD[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (ETH_RXD[0]) connected to this Port, but both were not found.
+Related violations: <none>
+
+HPDR-1#3 Warning
+Port pin direction inconsistency  
+Hierarchical port(pin) ETH_RXD[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (ETH_RXD[1]) connected to this Port, but both were not found.
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell eth_rst_gen_i/lfsr_q[31]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) packet_gen_i/crc_gen_i/lfsr_q_reg[25]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[26]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[27]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[28]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[29]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[2]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[30]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[31]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[3]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[4]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[5]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[6]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[7]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[8]/PRE,
+packet_gen_i/crc_gen_i/lfsr_q_reg[9]/PRE (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell rst_gen_i/gen_50M_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) eth_rst_gen_i/gen_50M/inst/mmcm_adv_inst/RST. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on RST_N relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+
