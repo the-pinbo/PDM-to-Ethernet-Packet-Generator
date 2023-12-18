@@ -1,14 +1,14 @@
 import pyshark
 
 
-PCAP_FILE_PATH = r'C:\Users\inba2\Desktop\DDFPGA\TermProject\ddfpga-project\python\caputre_ws_2.pcapng'
+PCAP_FILE_PATH = r'C:\Users\inba2\Desktop\DDFPGA\TermProject\ddfpga-project\python\pcap_final_demo.pcapng'
 DEST_SRC_MAC = b'<|?\x1a\xea\x02\x00\x18>\x01\xebn'
 
 
 sample_bytes = 4
 sample_rate = 3e6//64
 
-with open("test.bin", "wb") as f:
+with open("bin_final_demo.bin", "wb") as f:
     cap = pyshark.FileCapture(
         PCAP_FILE_PATH, only_summaries=False, use_json=True, include_raw=True)
 

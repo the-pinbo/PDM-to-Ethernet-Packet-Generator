@@ -139,8 +139,8 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/project/efsm.runs/synth_1/ethernet_top.dcp
-  read_ip -quiet c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/cic_compiler/cic_compiler_0.xci
-  read_ip -quiet c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/cic_compiler/cic_compiler_0.xci
+  read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/data_fifo/data_fifo.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/constraints/Nexys-4-DDR-Master.xdc

@@ -24,7 +24,7 @@ import ethernet_header_pkg::*;
 module eth_header_gen
   #(
     parameter [47:0] SOURCE_MAC = 48'H00_18_3E_01_EB_6E,
-    parameter [47:0] DEST_MAC = 48'he86a64e7e829,
+    parameter [47:0] DEST_MAC = 48'H8C_47_BE_1C_82_ED,
     parameter [15:0] PACKET_PAYLOAD_BYTES = 128
 
     )

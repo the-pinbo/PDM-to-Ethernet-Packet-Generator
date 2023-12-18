@@ -9,7 +9,7 @@
     <Object name="xc7a100t_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/bin/pdm_mic_bitstream.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/bin/Inba/pdm_mic_bitstream.bit"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
   </ObjectList>

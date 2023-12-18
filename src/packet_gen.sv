@@ -24,8 +24,8 @@ import ethernet_header_pkg::*;
 module packet_gen
   #(
     parameter SOURCE_MAC = 48'H00_18_3E_01_EB_6E,
-    parameter DEST_MAC = 48'H3C_7C_3F_1A_EA_02,
-   //  parameter DEST_MAC = 48'H8C_47_BE_1C_82_ED,
+   //  parameter DEST_MAC = 48'H3C_7C_3F_1A_EA_02,
+    parameter DEST_MAC = 48'H8C_47_BE_1C_82_ED,
     parameter MII_WIDTH = 2,
     parameter PACKET_PAYLOAD_WORDS = 64,
     parameter WORD_BYTES = 4

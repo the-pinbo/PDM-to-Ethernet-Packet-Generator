@@ -127,7 +127,8 @@ module ethernet_top
     #(
     .PACKET_PAYLOAD_WORDS(PACKET_PAYLOAD_WORDS),
     .WORD_BYTES(WORD_BYTES),
-    .DEST_MAC(48'H3C_7C_3F_1A_EA_02),
+//    .DEST_MAC(48'H3C_7C_3F_1A_EA_02),
+    .DEST_MAC(48'H8C_47_BE_1C_82_ED),
     .SOURCE_MAC(48'H00_18_3E_01_EB_6E)
     )
     packet_gen_i
