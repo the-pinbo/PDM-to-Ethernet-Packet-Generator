@@ -1,0 +1,25 @@
+
+\subsection{Setup and Usage scripts}
+
+\subsubsection{Run OpenRAM Docker Container}
+\begin{minted}[breaklines]{bash}
+FROM ubuntu:latest 
+
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt update
+RUN apt install -y tzdata
+
+WORKDIR /sram 
+COPY ./OpenRAM ./OpenRAM
+COPY ./setup_environment.sh ./setup_environment.sh
+
+RUN pwd
+RUN ls -la
+
+RUN bash setup_environment.sh
+
+CMD ["/bin/bash"]
+\end{minted}
+
