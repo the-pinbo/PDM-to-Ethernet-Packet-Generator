@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
 set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
@@ -95,9 +96,11 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_header_gen.sv
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/eth_rst_gen.sv
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/packet_gen.sv
+  C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/parzen.sv
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/pdm_clk_gen.sv
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/pdm_microphone.sv
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/rst_gen.sv
+  C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/triangle_gen.sv
   C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/src/ethernet_top.sv
 }
 read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/cic_compiler/cic_compiler_0.xci
@@ -107,6 +110,9 @@ read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/clk_w
 set_property used_in_implementation false [get_files -all c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/clk_wiz_0/clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+
+read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/xfft_0/xfft_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/xfft_0/xfft_0_ooc.xdc]
 
 read_ip -quiet C:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/data_fifo/data_fifo.xci
 set_property used_in_implementation false [get_files -all c:/Users/inba2/Desktop/DDFPGA/TermProject/ddfpga-project/ip/data_fifo/data_fifo.xdc]

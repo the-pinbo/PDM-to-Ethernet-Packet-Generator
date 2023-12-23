@@ -1,0 +1,46 @@
+% Author - Jon Arnt Kårstad, NTNU IMT
+\documentclass{article}
+% Importing document settings from our file "packages.sty"
+\usepackage{packages}
+% Beginning of document
+\begin{document}
+% Inserting title page
+\import{./}{title}
+% Defining front matter settings (Norsk: innstillinger for forord m.m.)
+\frontmatter
+% Inserting table of contents
+\tableofcontents
+% Inserting list of figures & list of tables
+\listoffigures
+% \listoftables
+% Defining main matter settings (Norsk: innstillinger for hoveddelen av teksten)
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\import{./Sections/INTRODUCTION}{main}
+
+% \import{./Sections/LITERATURE-REVIEW}{main}
+
+\import{./Sections/IMPLEMENTATION}{main}
+
+\import{./Sections/RESULTS}{main}
+
+\import{./Sections/CONCLUSION}{main}
+
+\import{./Sections/BIBLIOGRAPHY}{main}
+
+
+
+
+
+
+
+
+
+% % Inserting appendix with separate settings
+% \addappendix
+% \import{./Appendices/}{main}
+
+% End of document
+\end{document}
