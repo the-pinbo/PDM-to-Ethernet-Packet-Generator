@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date             : Mon Dec 18 12:11:20 2023
+| Date             : Mon Dec 18 12:26:18 2023
 | Host             : DESKTOP-8PI2STL running 64-bit major release  (build 9200)
 | Command          : report_power -file ethernet_top_power_routed.rpt -pb ethernet_top_power_summary_routed.pb -rpx ethernet_top_power_routed.rpx
 | Design           : ethernet_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.215        |
+| Total On-Chip Power (W)  | 0.230        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.118        |
+| Dynamic (W)              | 0.132        |
 | Device Static (W)        | 0.098        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.0         |
@@ -52,20 +52,21 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.002 |        7 |       --- |             --- |
-| Slice Logic             |    <0.001 |     1486 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      409 |     63400 |            0.65 |
-|   LUT as Shift Register |    <0.001 |       53 |     19000 |            0.28 |
-|   CARRY4                |    <0.001 |       47 |     15850 |            0.30 |
-|   Register              |    <0.001 |      714 |    126800 |            0.56 |
-|   Others                |     0.000 |       71 |       --- |             --- |
-| Signals                 |    <0.001 |     1047 |       --- |             --- |
-| Block RAM               |     0.002 |        2 |       135 |            1.48 |
+| Clocks                  |     0.005 |        7 |       --- |             --- |
+| Slice Logic             |     0.001 |     4584 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |     1041 |     63400 |            1.64 |
+|   Register              |    <0.001 |     2296 |    126800 |            1.81 |
+|   LUT as Shift Register |    <0.001 |      297 |     19000 |            1.56 |
+|   CARRY4                |    <0.001 |      147 |     15850 |            0.93 |
+|   F7/F8 Muxes           |    <0.001 |        8 |     63400 |            0.01 |
+|   Others                |     0.000 |      237 |       --- |             --- |
+| Signals                 |     0.003 |     4229 |       --- |             --- |
+| Block RAM               |     0.006 |        5 |       135 |            3.70 |
 | MMCM                    |     0.106 |        1 |         6 |           16.67 |
-| DSPs                    |    <0.001 |        2 |       240 |            0.83 |
+| DSPs                    |     0.004 |       25 |       240 |           10.42 |
 | I/O                     |     0.006 |       14 |       210 |            6.67 |
 | Static Power            |     0.098 |          |           |                 |
-| Total                   |     0.215 |          |           |                 |
+| Total                   |     0.230 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.022 |       0.006 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.036 |       0.020 |      0.016 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.077 |       0.059 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -84,7 +85,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.001 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -148,7 +149,7 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| ethernet_top       |     0.118 |
+| ethernet_top       |     0.132 |
 |   eth_rst_gen_i    |     0.106 |
 |     gen_50M        |     0.106 |
 |       inst         |     0.106 |
@@ -158,6 +159,9 @@ Table of Contents
 |   pdm_microphone_i |     0.002 |
 |     cic_compiler   |     0.002 |
 |       U0           |     0.002 |
+|   xfft_0_i         |     0.014 |
+|     U0             |     0.014 |
+|       i_synth      |     0.014 |
 +--------------------+-----------+
 
 
